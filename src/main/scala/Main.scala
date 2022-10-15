@@ -28,7 +28,6 @@ object User {
 
 object UserApp {
   def apply(): Http[UserRepo, Throwable, Request, Response] =
-    // POST /users -d '{"name": "John", "age": 35}'
     Http.collectZIO[Request] {
       // POST /users -d '{"name": "John", "age": 35}'
       case req @ Method.POST -> !! / "users" =>
